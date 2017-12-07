@@ -63,6 +63,8 @@
 
     <div class="container">
         <div class="bg-faded p-4 my-4">
+            <?=showFeedback();?>
+
       <!-- header ends here -->
         
         

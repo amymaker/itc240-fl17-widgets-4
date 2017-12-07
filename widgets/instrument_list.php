@@ -15,7 +15,7 @@ $sql = "select * from hw_Instrument";
 $iConn = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
     
     # Create instance of new 'pager' class
-$myPager = new Pager(2,'',$prev,$next,'');
+$myPager = new Pager(10,'',$prev,$next,'');
 $sql = $myPager->loadSQL($sql,$iConn);  #load SQL, pass in existing connection, add offset
 
 //we extract the data here
@@ -34,6 +34,8 @@ if(mysqli_num_rows($result) > 0)
         echo 'Description: <b>' . $row['Description'] . '</b></br> ';
         
         echo '<a href="instrument_view.php?id=' . $row['InstrumentID'] . '">' . $row['Name'] . '</a>';
+        
+        echo '<img src="' . $config->virtual_path . '/upload/instrument' . dbOut($row['InstrumentID']) . '_thumb.jpg" />';
         
         echo '</p>';
     } 

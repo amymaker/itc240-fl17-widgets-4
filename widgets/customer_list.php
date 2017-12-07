@@ -24,6 +24,8 @@ if(mysqli_num_rows($result) > 0)
         
         echo '<a href="customer_view.php?id=' . $row['CustomerID'] . '">' . $row['FirstName'] . '</a>';
         
+        echo '<img src="' . $config->virtual_path . '/uploads/customer' . dbOut($row['CustomerID']) . '_thumb.jpg" />';
+        
         echo '</p>';
     }    
 
